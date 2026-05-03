@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Face Recognition Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="theme-color" content="#000000">
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel hero">
+        <div>
+          <h1>Face Recognition Application</h1>
+          <p class="muted">
+            Register users using the live camera. Then start detection. When a
+            registered user appears, the app shows that user as
+            <strong>Detected</strong> and stores the event in Firebase Cloud.
+          </p>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <div class="section-head">
+            <h2>Live Camera</h2>
+            <span id="register-status" class="pill">Ready</span>
+          </div>
+
+          <label class="label" for="name">User name</label>
+          <input id="name" class="input" type="text" placeholder="Enter user name" />
+
+          <video id="camera-video" autoplay playsinline muted></video>
+          <canvas id="snapshot-canvas" hidden></canvas>
+
+          <div class="actions">
+            <button id="start-camera" class="primary">Start Camera</button>
+            <button id="stop-camera" class="ghost">Stop Camera</button>
+            <button id="register-user">Register User</button>
+            <button id="start-detection">Start Detection</button>
+          </div>
+
+          <p id="message" class="message"></p>
+        </article>
+
+        <article class="panel">
+          <div class="section-head">
+            <h2>Detection Result</h2>
+            <span id="firebase-state" class="pill">Firebase</span>
+          </div>
+          <div id="detected-users" class="detected-box">Start the camera, then start detection.</div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>Registered Users</h2>
+          <span id="user-count" class="pill">0 users</span>
+        </div>
+        <p class="muted">You can delete a registered user at any time.</p>
+        <div id="user-list" class="user-list"></div>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </body>
+</html>
