@@ -2,12 +2,7 @@
 
 This is a simple face recognition application built using ONNX models.
 
-## Stack
 
-- Flask for the web app
-- OpenCV for camera access and ONNX inference wrappers
-- YuNet ONNX model for face detection
-- SFace ONNX model for face recognition
 
 ## Flow
 
@@ -25,7 +20,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-Open `http://127.0.0.1:5000` by default.
+
 
 ## Notes
 
